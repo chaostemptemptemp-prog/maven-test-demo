@@ -1,12 +1,12 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven3'
+        maven 'maven3'
     }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/<your-username>/maven-test-demo.git'
+                checkout scmGit(branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/chaostemptemptemp-prog/maven-test-demo.git']])
             }
         }
         stage('Compile') {
